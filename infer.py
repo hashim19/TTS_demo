@@ -39,8 +39,9 @@ import phonemizer
 
 ################ give your text and model path here #########
 text = "Joe Biden's woke policies and political purges have repulsed many great patriots from serving.  They don't want to serve in our military.  Frankly,  they disrespect our President."
-
 model_path = "StyleTTS2-LJSpeech/Models/LJSpeech/epoch_2nd_00100.pth"
+config_path = "StyleTTS2-LJSpeech/Models/LJSpeech/config.yml"
+out_filename = "output.wav"
 
 ################ inference code below #################
 
@@ -176,11 +177,8 @@ def LFinference(text, s_prev, noise, alpha=0.7, diffusion_steps=5, embedding_sca
         
     return out.squeeze().cpu().numpy(), s_pred
 
-
-
-config = yaml.safe_load(open("StyleTTS2-LJSpeech/Models/LJSpeech/config.yml"))
-
 # load pretrained ASR model
+config = yaml.safe_load(open(config_path))
 ASR_config = config.get('ASR_config', False)
 ASR_path = config.get('ASR_path', False)
 text_aligner = load_ASR_models(ASR_path, ASR_config)
@@ -243,4 +241,4 @@ else:
         t += '.' # add it back
         wav, s_prev = LFinference(t, s_prev, noise, alpha=0.7, diffusion_steps=10, embedding_scale=1.5)
         wavs.append(wav)
-    sf.write(f'output.wav', np.concatenate(wavs), 24000)
+    sf.write(out_filename, np.concatenate(wavs), 24000)

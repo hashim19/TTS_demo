@@ -20,17 +20,14 @@ conda activate TTS_demo
 ```
 
 ### How to generate voice:
-I have included two models in this repository. 
-
-```ruby
-StyleTTS2-LibriTTS
-StyleTTS2-LJSpeech
-``` 
+I have included StyleTTS2-LJSpeech model in this repository. 
 
 First set the following parameters in infer.py.
 ```ruby
 text = "This is a test text"
 model_path = "StyleTTS2-LJSpeech/Models/LJSpeech/epoch_2nd_00100.pth"
+config_path = "StyleTTS2-LJSpeech/Models/LJSpeech/config.yml"
+out_filename = "output.wav"
 ```
 
 Then run,
