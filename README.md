@@ -27,7 +27,7 @@ StyleTTS2-LibriTTS
 StyleTTS2-LJSpeech
 ``` 
 
-First set the following parameters.
+First set the following parameters in infer.py.
 ```ruby
 text = "This is a test text"
 model_path = "StyleTTS2-LJSpeech/Models/LJSpeech/epoch_2nd_00100.pth"
