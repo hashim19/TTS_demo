@@ -1,6 +1,6 @@
-# Speaker-Specific-ASD
+# TTS-demo
 
-This repository contains code for protecting famous figures from audio deepfake attacks.
+This repository contains a demo code for generating LJspeech voice from text.
 
 ## Installation
 
